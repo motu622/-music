@@ -1,0 +1,30 @@
+<view class="songDetailContainer">
+  <view class="author">{{song.ar[0].name}}</view>
+  <view class="circle"></view>
+  <image class="needle {{isPlay && 'needleRotate'}}" src="/static/images/song/needle.png"></image>
+
+  <view class="discContainer {{isPlay && 'discAnimation'}}">
+    <image class="disc" src="/static/images/song/disc.png"></image>
+    <image class="musicImg" bindtap="handleMusicPlay" src="{{song.al.picUrl}}"></image>
+  </view>
+
+
+  <view class="progressControl">
+    <text>{{currentTime}}</text>
+    <slider style="width: 100%;" value="{{currentWidth}}" bindtap="sliderChange" bindchanging="sliderChange" selected-color="#1aad19" block-size="12" color="#e9e9e9"></slider>
+    <text>{{durationTime}}</text>
+  </view>
+
+  <!-- 底部控制播放区域 -->
+  <view class="musicControl">
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+
+    <text class="iconfont icon-shangyishoushangyige" id="pre" bindtap="handleSwitch"></text>
+
+    <text class="iconfont {{isPlay?'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+
+    <text class="iconfont icon-xiayigexiayishou" id="next" bindtap="handleSwitch"></text>
+
+    <text class="iconfont icon-play-list-line"></text>
+  </view>
+</view>
